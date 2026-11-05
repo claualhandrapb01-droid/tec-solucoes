@@ -1,0 +1,9 @@
+{
+  "name": "TEC Soluções",
+  "short_name": "TEC Soluções",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#10243a",
+  "description": "Controle financeiro pessoal e de serviços extras."
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243a">
+  <meta name="description" content="TEC Soluções - controle financeiro pessoal e de serviços extras.">
+  <title>TEC Soluções</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">TEC</span><span>TEC Soluções</span></div>
+    <span id="connection-status" class="status">Inicializando…</span>
+  </header>
+
+  <main class="container">
+    <section id="setup-notice" class="notice hidden">
+      <h2>Configuração necessária</h2>
+      <p>O projeto está preparado, mas ainda precisa ser conectado ao seu projeto Firebase. Siga o arquivo <strong>LEIA-ME.md</strong>.</p>
+    </section>
+
+    <section id="auth-panel" class="auth-card">
+      <p class="eyebrow">ÁREA RESTRITA</p>
+      <h1>Acesse sua conta</h1>
+      <p class="muted">Entre para acessar seus dados financeiros.</p>
+      <form id="login-form">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="username" required placeholder="seu@email.com">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Sua senha">
+        <button type="submit" class="primary">Entrar</button>
+        <p id="auth-message" class="form-message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="app-panel" class="hidden">
+      <div class="welcome-row">
+        <div><p class="eyebrow">PAINEL INICIAL</p><h1>Visão geral</h1><p class="muted">Estrutura inicial do TEC Soluções.</p></div>
+        <button id="logout-button" class="secondary">Sair</button>
+      </div>
+      <div class="summary-grid">
+        <article class="summary-card"><span>Saldo geral</span><strong>—</strong><small>Será conectado aos lançamentos</small></article>
+        <article class="summary-card"><span>Recebimentos</span><strong>—</strong><small>Será conectado aos recebimentos</small></article>
+        <article class="summary-card"><span>Despesas</span><strong>—</strong><small>Será conectado às despesas</small></article>
+      </div>
+      <h2>Módulos do sistema</h2>
+      <div class="module-grid">
+        <div class="module-card">Movimentações</div>
+        <div class="module-card">Recebimentos</div>
+        <div class="module-card">Serviços</div>
+        <div class="module-card">Minha Rotina</div>
+        <div class="module-card">Agenda</div>
+        <div class="module-card">Clientes</div>
+        <div class="module-card">Contas</div>
+        <div class="module-card">Cartões</div>
+        <div class="module-card">Empréstimos</div>
+        <div class="module-card">Relatórios e Metas</div>
+        <div class="module-card">Configurações</div>
+      </div>
+      <p class="prototype-note">Protótipo estrutural: os indicadores e módulos ainda não movimentam dados. Serão implementados e testados por etapas.</p>
+    </section>
+  </main>
+
+  <footer>TEC Soluções · Projeto em desenvolvimento</footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
