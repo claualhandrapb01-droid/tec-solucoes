@@ -1,10 +1,10 @@
-// Preencha com os dados do aplicativo Web no Firebase Console.
-// Não coloque aqui senhas, chaves privadas ou credenciais administrativas.
+
+// Configuração do Firebase do TEC Soluções
 export const firebaseConfig = {
-  apiKey: "PREENCHER",
-  authDomain: "PREENCHER",
-  projectId: "PREENCHER",
-  storageBucket: "PREENCHER",
-  messagingSenderId: "PREENCHER",
-  appId: "PREENCHER"
+  apiKey: "AIzaSyAfzpUaEZ8wedOO-i9LYkoagFDGBsm2kjI",
+  authDomain: "tecsolucoes-65e1c.firebaseapp.com",
+  projectId: "tecsolucoes-65e1c",
+  storageBucket: "tecsolucoes-65e1c.firebasestorage.app",
+  messagingSenderId: "557854091733",
+  appId: "1:557854091733:web:02cb3bb8725cd814fcf55c"
 };
