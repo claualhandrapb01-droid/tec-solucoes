@@ -2,8 +2,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/fireba
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import { firebaseConfig } from "./firebase-config.js";
 
-const authPanel = document.querySelector("#auth-panel");
-const appPanel = document.querySelector("#app-panel");
+const authPanel = document.querySelector("#auth-view");
+const appPanel = document.querySelector("#app-view");
 const authMessage = document.querySelector("#auth-message");
 const connectionStatus = document.querySelector("#connection-status");
 const setupNotice = document.querySelector("#setup-notice");
