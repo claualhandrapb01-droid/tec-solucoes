@@ -4,66 +4,183 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10243a">
-  <meta name="description" content="TEC Soluções - controle financeiro pessoal e de serviços extras.">
+  <meta name="description" content="TEC Soluções - controle financeiro pessoal e da área TEC.">
   <title>TEC Soluções</title>
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand"><span class="brand-mark">TEC</span><span>TEC Soluções</span></div>
-    <span id="connection-status" class="status">Inicializando…</span>
-  </header>
-
-  <main class="container">
+  <section id="auth-view" class="auth-view">
+    <div class="auth-brand">
+      <span class="brand-mark">TEC</span>
+      <span>TEC <strong>Soluções</strong></span>
+    </div>
     <section id="setup-notice" class="notice hidden">
       <h2>Configuração necessária</h2>
-      <p>O projeto está preparado, mas ainda precisa ser conectado ao seu projeto Firebase. Siga o arquivo <strong>LEIA-ME.md</strong>.</p>
+      <p>O projeto precisa ser conectado ao Firebase.</p>
     </section>
-
-    <section id="auth-panel" class="auth-card">
+    <main id="auth-panel" class="auth-card">
       <p class="eyebrow">ÁREA RESTRITA</p>
-      <h1>Acesse sua conta</h1>
-      <p class="muted">Entre para acessar seus dados financeiros.</p>
+      <h1>Bem-vindo de volta</h1>
+      <p class="muted">Entre para acessar seu painel financeiro.</p>
       <form id="login-form">
         <label for="email">E-mail</label>
         <input id="email" name="email" type="email" autocomplete="username" required placeholder="seu@email.com">
         <label for="password">Senha</label>
         <input id="password" name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="Sua senha">
-        <button type="submit" class="primary">Entrar</button>
+        <button type="submit" class="primary">Entrar na minha conta</button>
         <p id="auth-message" class="form-message" role="status"></p>
       </form>
-    </section>
+    </main>
+    <p class="auth-foot">TEC Soluções · Acesso pessoal e protegido</p>
+  </section>
 
-    <section id="app-panel" class="hidden">
-      <div class="welcome-row">
-        <div><p class="eyebrow">PAINEL INICIAL</p><h1>Visão geral</h1><p class="muted">Estrutura inicial do TEC Soluções.</p></div>
-        <button id="logout-button" class="secondary">Sair</button>
+  <div id="app-view" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">TEC</span>
+        <span>TEC <strong>Soluções</strong></span>
       </div>
-      <div class="summary-grid">
-        <article class="summary-card"><span>Saldo geral</span><strong>—</strong><small>Será conectado aos lançamentos</small></article>
-        <article class="summary-card"><span>Recebimentos</span><strong>—</strong><small>Será conectado aos recebimentos</small></article>
-        <article class="summary-card"><span>Despesas</span><strong>—</strong><small>Será conectado às despesas</small></article>
+      <div class="sidebar-caption">MENU PRINCIPAL</div>
+      <nav id="main-navigation" class="main-navigation" aria-label="Navegação principal">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span>Visão geral</button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-page="Movimentações"><span class="nav-icon">⇄</span>Movimentações</button>
+        <button class="nav-item" data-page="Recebimentos"><span class="nav-icon">↙</span>Recebimentos</button>
+        <button class="nav-item" data-page="Despesas"><span class="nav-icon">↗</span>Despesas</button>
+        <button class="nav-item" data-page="Pagamentos"><span class="nav-icon">✓</span>Pagamentos</button>
+        <button class="nav-item" data-page="Serviços"><span class="nav-icon">▣</span>Serviços</button>
+        <button class="nav-item" data-page="Minha Rotina"><span class="nav-icon">◷</span>Minha Rotina</button>
+        <button class="nav-item" data-page="Agenda"><span class="nav-icon">▦</span>Agenda</button>
+        <button class="nav-item" data-page="Clientes"><span class="nav-icon">♙</span>Clientes</button>
+        <button class="nav-item" data-page="Ajudantes"><span class="nav-icon">♧</span>Ajudantes</button>
+        <button class="nav-item" data-page="Contas"><span class="nav-icon">▤</span>Contas</button>
+        <button class="nav-item" data-page="Cartões"><span class="nav-icon">▱</span>Cartões</button>
+        <button class="nav-item" data-page="Empréstimos"><span class="nav-icon">⇢</span>Empréstimos</button>
+        <button class="nav-item" data-page="Relatórios e Metas"><span class="nav-icon">▥</span>Relatórios e Metas</button>
+        <button class="nav-item" data-page="Configurações"><span class="nav-icon">⚙</span>Configurações</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="connection-line"><span class="connection-dot"></span><span id="connection-status">Inicializando…</span></div>
+        <button id="logout-button" class="logout-button">↪ &nbsp; Sair da conta</button>
       </div>
-      <h2>Módulos do sistema</h2>
-      <div class="module-grid">
-        <div class="module-card">Movimentações</div>
-        <div class="module-card">Recebimentos</div>
-        <div class="module-card">Serviços</div>
-        <div class="module-card">Minha Rotina</div>
-        <div class="module-card">Agenda</div>
-        <div class="module-card">Clientes</div>
-        <div class="module-card">Contas</div>
-        <div class="module-card">Cartões</div>
-        <div class="module-card">Empréstimos</div>
-        <div class="module-card">Relatórios e Metas</div>
-        <div class="module-card">Configurações</div>
-      </div>
-      <p class="prototype-note">Protótipo estrutural: os indicadores e módulos ainda não movimentam dados. Serão implementados e testados por etapas.</p>
-    </section>
-  </main>
+    </aside>
 
-  <footer>TEC Soluções · Projeto em desenvolvimento</footer>
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PAINEL DE CONTROLE</p>
+          <h1 id="page-title">Visão geral</h1>
+        </div>
+        <div class="user-chip"><span class="user-avatar">U</span><span id="user-email">Usuário conectado</span></div>
+      </header>
+
+      <section id="dashboard-page" class="page-content">
+        <div class="welcome-banner">
+          <div>
+            <p class="banner-kicker">SEU CONTROLE EM UM SÓ LUGAR</p>
+            <h2>Olá! Bem-vindo ao TEC Soluções.</h2>
+            <p>Acompanhe suas finanças pessoais e a área TEC.</p>
+          </div>
+          <div class="banner-symbol">TEC</div>
+        </div>
+
+        <div class="section-heading">
+          <div><h2>Resumo financeiro</h2><p>Os indicadores serão conectados aos módulos nas próximas etapas.</p></div>
+          <span class="period-label">Visão geral</span>
+        </div>
+        <div class="summary-grid">
+          <article class="summary-card"><span class="summary-label">Saldo geral</span><strong>—</strong><small>Saldo bancário real consolidado</small></article>
+          <article class="summary-card"><span class="summary-label">Recebimentos</span><strong>—</strong><small>Recebimentos registrados</small></article>
+          <article class="summary-card"><span class="summary-label">Despesas</span><strong>—</strong><small>Despesas efetivas registradas</small></article>
+          <article class="summary-card"><span class="summary-label">Saldo TEC</span><strong id="dashboard-tec-total">R$ 0,00</strong><small>Distribuição interna TEC</small></article>
+          <article class="summary-card"><span class="summary-label">Saldo Pessoal</span><strong id="dashboard-personal-total">R$ 0,00</strong><small>Distribuição interna Pessoal</small></article>
+        </div>
+        <div class="dashboard-breakdowns">
+          <details class="panel dashboard-detail" open>
+            <summary>Saldo por banco e área</summary>
+            <div class="dashboard-area-columns">
+              <section><h3>TEC — banco a banco</h3><div id="dashboard-banks-tec" class="dashboard-breakdown-list"></div></section>
+              <section><h3>Pessoal — banco a banco</h3><div id="dashboard-banks-personal" class="dashboard-breakdown-list"></div></section>
+            </div>
+          </details>
+          <details class="panel dashboard-detail">
+            <summary>Cartões de crédito por área</summary>
+            <div class="dashboard-area-columns">
+              <section><h3>Compras TEC</h3><div id="dashboard-cards-tec" class="dashboard-breakdown-list"></div></section>
+              <section><h3>Compras Pessoal</h3><div id="dashboard-cards-personal" class="dashboard-breakdown-list"></div></section>
+            </div>
+            <p class="muted small">Valores representam parcelas ainda pendentes, agrupadas pelo cartão e pela área responsável da compra.</p>
+          </details>
+        </div>
+
+        <div class="section-heading modules-heading">
+          <div><h2>Acesso aos módulos</h2><p>Selecione uma área para iniciar.</p></div>
+        </div>
+        <div class="module-grid">
+          <button class="module-card" data-page="Movimentações"><span class="module-icon blue">⇄</span><span><strong>Movimentações</strong><small>Consulte entradas e saídas</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Recebimentos"><span class="module-icon green">↙</span><span><strong>Recebimentos</strong><small>Acompanhe valores recebidos</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Despesas"><span class="module-icon red">↗</span><span><strong>Despesas</strong><small>Controle seus pagamentos</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Pagamentos"><span class="module-icon green">✓</span><span><strong>Pagamentos</strong><small>Quite obrigações pendentes</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Serviços"><span class="module-icon blue">▣</span><span><strong>Serviços</strong><small>Gerencie seus trabalhos</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Minha Rotina"><span class="module-icon purple">◷</span><span><strong>Minha Rotina</strong><small>Registre atividades e horas</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Agenda"><span class="module-icon orange">▦</span><span><strong>Agenda</strong><small>Organize seus compromissos</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Clientes"><span class="module-icon blue">♙</span><span><strong>Clientes</strong><small>Consulte seus clientes</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Ajudantes"><span class="module-icon purple">♧</span><span><strong>Ajudantes</strong><small>Controle valores combinados</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Contas"><span class="module-icon green">▤</span><span><strong>Contas</strong><small>Cadastre contas e saldos</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Cartões"><span class="module-icon blue">▱</span><span><strong>Cartões</strong><small>Gerencie cartões e faturas</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Empréstimos"><span class="module-icon orange">⇢</span><span><strong>Empréstimos</strong><small>Acompanhe suas parcelas</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Relatórios e Metas"><span class="module-icon green">▥</span><span><strong>Relatórios e Metas</strong><small>Analise seus resultados</small></span><span class="module-arrow">›</span></button>
+          <button class="module-card" data-page="Configurações"><span class="module-icon gray">⚙</span><span><strong>Configurações</strong><small>Personalize o aplicativo</small></span><span class="module-arrow">›</span></button>
+        </div>
+        <p class="prototype-note">Módulo Contas funcional em implantação. Os demais módulos serão ativados gradualmente.</p>
+      </section>
+
+      <section id="module-page" class="page-content hidden">
+        <div id="accounts-workspace" class="hidden">
+          <div class="section-heading"><div><h2>Suas contas</h2><p>Cadastre e acompanhe os saldos reais e a distribuição entre Pessoal e TEC.</p></div><span class="period-label">Dados sincronizados</span></div>
+          <div class="account-summary-grid">
+            <article class="summary-card"><span class="summary-label">Saldo bancário total</span><strong id="accounts-total-real">R$ 0,00</strong><small>Soma dos saldos reais das contas</small></article>
+            <article class="summary-card"><span class="summary-label">Saldo atribuído a Pessoal</span><strong id="accounts-total-personal">R$ 0,00</strong><small>Distribuição interna</small></article>
+            <article class="summary-card"><span class="summary-label">Saldo atribuído à TEC</span><strong id="accounts-total-tec">R$ 0,00</strong><small>Distribuição interna</small></article>
+          </div>
+          <div class="accounts-layout">
+            <section class="panel account-form-panel">
+              <h2 id="account-form-title">Cadastrar conta</h2>
+              <p class="muted small">O saldo inicial será atribuído integralmente a Pessoal. A parcela TEC começa em zero.</p>
+              <form id="account-form">
+                <label for="account-name">Nome da conta *</label><input id="account-name" name="accountName" required maxlength="60" placeholder="Ex.: Banco principal">
+                <div id="account-initial-balance-wrap"><label for="initial-balance">Saldo inicial (R$) *</label><input id="initial-balance" name="initialBalance" type="number" min="0" step="0.01" required value="0"></div>
+                <label for="account-notes">Observações (opcional)</label><textarea id="account-notes" name="accountNotes" rows="3" maxlength="500" placeholder="Informações adicionais"></textarea>
+                <div class="form-actions"><button id="account-form-submit" class="primary" type="submit">Salvar conta</button><button id="account-form-cancel" class="secondary hidden" type="button">Cancelar edição</button><button id="account-form-delete" class="danger-button hidden" type="button">Excluir conta</button></div>
+                <p id="account-form-message" class="form-message" role="status"></p>
+              </form>
+            </section>
+            <section class="account-list-panel"><div class="section-heading compact"><div><h2>Contas ativas</h2><p>Contas disponíveis para novas operações.</p></div></div><div id="accounts-list" class="accounts-grid"><div class="empty-state">Carregando contas…</div></div>
+              <details class="inactive-accounts"><summary>Contas desativadas</summary><div id="inactive-accounts-list"></div></details>
+            </section>
+          </div>
+          <section class="panel history-panel"><div class="section-heading compact"><div><h2>Histórico das contas</h2><p>Últimos ajustes e transferências registrados.</p></div></div><div id="accounts-history"><p class="muted small">Carregando histórico…</p></div></section>
+          <div class="accounts-footnote">As transferências entre contas próprias são registradas em pares e não são receitas nem despesas. Não existem transferências entre as áreas Pessoal e TEC.</div>
+        </div>
+        <div id="module-placeholder" class="module-placeholder hidden"></div>
+        <section id="module-workspace" class="module-workspace hidden" aria-live="polite">
+          <div class="section-heading"><div><h2 id="workspace-title">Módulo</h2><p id="workspace-description">Gerencie os registros desta área.</p></div><button id="workspace-add" class="primary" type="button">+ Novo registro</button></div>
+          <div id="workspace-summary" class="account-summary-grid"></div>
+          <section class="panel workspace-form-panel hidden" id="workspace-form-panel">
+            <h3 id="workspace-form-title">Novo registro</h3>
+            <form id="workspace-form"><div id="workspace-fields" class="workspace-fields"></div><div class="form-actions"><button class="primary" id="workspace-save" type="submit">Salvar registro</button><button class="secondary" id="workspace-cancel" type="button">Cancelar</button></div><p id="workspace-message" class="form-message" role="status"></p></form>
+          </section>
+          <section class="panel workspace-list-panel"><div class="workspace-list-heading"><h3>Registros</h3><input id="workspace-search" type="search" placeholder="Buscar registros…" aria-label="Buscar registros"></div><div id="workspace-list"><div class="empty-state">Carregando registros…</div></div></section>
+        </section>
+      </section>
+      <dialog id="adjustment-dialog" class="app-dialog"><form id="adjustment-form" method="dialog"><p class="eyebrow">CONTAS</p><h2>Ajustar saldo real</h2><p>Conta: <strong id="adjust-account-name"></strong></p><p class="muted small">Saldo atual: <strong id="adjust-current-balance"></strong>. A diferença será atribuída somente a Pessoal; o saldo TEC permanecerá inalterado.</p><input id="adjust-account-id" type="hidden"><label for="adjust-new-balance">Novo saldo real (R$) *</label><input id="adjust-new-balance" type="number" min="0" step="0.01" required><label for="adjust-reason">Justificativa obrigatória *</label><textarea id="adjust-reason" rows="3" required maxlength="500"></textarea><p id="adjustment-message" class="form-message" role="status"></p><div class="dialog-actions"><button id="adjustment-cancel" type="button" class="secondary">Cancelar</button><button id="adjustment-submit" type="submit" class="primary">Confirmar ajuste</button></div></form></dialog>
+      <dialog id="transfer-dialog" class="app-dialog"><form id="transfer-form" method="dialog"><p class="eyebrow">CONTAS</p><h2>Transferir entre minhas contas</h2><p class="muted small">A transferência movimenta duas contas próprias, sem gerar receita ou despesa.</p><input id="transfer-source-id" type="hidden"><label>Conta de origem</label><p id="transfer-source-name" class="field-readonly"></p><label for="transfer-destination">Conta destinatária *</label><select id="transfer-destination" required></select><label for="transfer-area">Área responsável pela transferência *</label><select id="transfer-area" required><option value="Pessoal">Pessoal</option><option value="TEC">TEC</option></select><p class="available-line">Saldo disponível na área: <strong id="transfer-area-available">R$ 0,00</strong></p><label for="transfer-amount">Valor (R$) *</label><input id="transfer-amount" type="number" min="0.01" step="0.01" required><label for="transfer-date">Data *</label><input id="transfer-date" type="date" required><label for="transfer-description">Descrição (opcional)</label><input id="transfer-description" maxlength="160" placeholder="Ex.: Organização dos saldos"><p id="transfer-message" class="form-message" role="status"></p><div class="dialog-actions"><button id="transfer-cancel" type="button" class="secondary">Cancelar</button><button id="transfer-submit" type="submit" class="primary">Confirmar transferência</button></div></form></dialog>
+
+      <footer class="app-footer">TEC Soluções <span>·</span> Controle integrado</footer>
+    </main>
+  </div>
+  <script>if("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("./sw.js").catch(() => {});</script>
   <script type="module" src="./js/app.js"></script>
 </body>
 </html>
